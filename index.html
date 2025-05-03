@@ -27,7 +27,7 @@
       if (!name) return alert("Please enter a Namecode");
       await setDoc(doc(db, "users", name), { namecode: name, mmr: 0 });
       localStorage.setItem("namecode", name);
-      window.location.href = "menu.html";
+      window.location.href = "main-menu.html";
     }
 
     window.saveNamecode = saveNamecode;
