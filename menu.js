@@ -4,8 +4,6 @@ window.onload = () => {
   };
   
   function navigate(page) {
-    alert(`Navigating to: ${page}`);
-    // Later you can route to other pages like:
-    // window.location.href = `${page}.html`;
+    // Navigate to the corresponding page
+    window.location.href = `${page}.html`;
   }
-  
