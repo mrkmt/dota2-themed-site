@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training Mode - DOTA 2 Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="training-container">
+    <h1>Training Grounds</h1>
+    
+    <div class="training-section">
+      <h2>🎥 Watch & Learn</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/0OmOQs0Qjzg" 
+                title="Dota 2 Guide" frameborder="0"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="training-section">
+      <h2>📘 Pro Tips</h2>
+      <ul class="training-tips">
+        <li>Always buy Observer Wards to maintain map vision.</li>
+        <li>Use Smoke of Deceit to gank unnoticed.</li>
+        <li>Secure runes at 2-minute intervals for mana/hp control.</li>
+        <li>Last-hitting is more important than early kills.</li>
+      </ul>
+    </div>
+
+    <div class="training-section">
+      <h2>🧠 Quick Quiz</h2>
+      <p>What item gives Spell Immunity?</p>
+      <button onclick="checkAnswer('A')">A. Blink Dagger</button>
+      <button onclick="checkAnswer('B')">B. Observer Ward</button>
+      <button onclick="checkAnswer('C')">C. Black King Bar</button>
+      <div id="quizResult" class="quiz-result"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(option) {
+      const result = document.getElementById('quizResult');
+      if (option === 'C') {
+        result.innerHTML = "<span style='color:lightgreen;'>Correct! BKB grants spell immunity.</span>";
+      } else {
+        result.innerHTML = "<span style='color:salmon;'>Wrong. Try again!</span>";
+      }
+    }
+  </script>
+</body>
+</html>

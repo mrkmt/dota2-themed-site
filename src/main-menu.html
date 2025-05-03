@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Main Menu - DOTA 2 Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <audio autoplay loop id="bg-music">
+    <source src="audio/dota2-theme.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="menu-container">
+    <h1>Welcome, <span id="playerName"></span></h1>
+    <div class="menu-buttons">
+      <button onclick="navigate('heroes')">Heroes</button>
+      <button onclick="navigate('items')">Items</button>
+      <button onclick="navigate('normal-match')">Normal Match</button>
+      <button onclick="navigate('ranked-match')">Ranked Match</button>
+      <button onclick="navigate('training')">Training Mode</button>
+    </div>
+  </div>
+
+  <script src="menu.js"></script>
+</body>
+</html>
