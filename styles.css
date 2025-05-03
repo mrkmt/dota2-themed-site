@@ -1,17 +1,9 @@
-body {
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-
-body.fade-in {
-  opacity: 1;
-}
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Segoe UI', sans-serif;
-    background: url('https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg') no-repeat center center fixed;
+    background:  url('images/dota-map.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
   }

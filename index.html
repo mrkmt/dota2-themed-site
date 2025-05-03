@@ -1,63 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DOTA 2 Themed Intro</title>
-  <link rel="stylesheet" href="styles.css">
-   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('images/dota-map.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Arial', sans-serif;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    body.fade-in { opacity: 1; }
-    .intro-box {
-      background: rgba(0,0,0,0.8);
-      color: gold;
-      padding: 40px;
-      text-align: center;
-      max-width: 400px;
-      margin: 15% auto;
-      border-radius: 10px;
-      box-shadow: 0 0 20px black;
-    }
-    input {
-      padding: 10px;
-      margin: 10px;
-      width: 80%;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: gold;
-      color: black;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: orange;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOTA 2 Portal</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="intro-box" id="introBox">
-    <h1>Enter Your Namecode</h1>
-    <input type="text" id="namecode" placeholder="Your Namecode">
-    <br>
-    <button onclick="enterGame()">Enter Game Mode</button>
+  <div class="background-lock">
+    <div class="drop-box">
+      <h1>Enter Your Namecode</h1>
+      <input type="text" id="namecode" placeholder="Enter Namecode..." />
+      <button onclick="enterGame()">Enter Game Mode</button>
+    </div>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("fade-in");
-      gsap.from("#introBox", { y: -100, opacity: 0, duration: 1.5, ease: "bounce" });
-    });
-  </script>
-   <script src="scripts.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
