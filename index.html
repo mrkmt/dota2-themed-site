@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <title>DOTA 2 Themed Intro</title>
   <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script type="module">
+      async function saveNamecode() {
+      const name = document.getElementById("nameInput").value;
+      if (!name) return alert("Please enter a Namecode");
+      await setDoc(doc(db, "users", name), { namecode: name, mmr: 0 });
+      localStorage.setItem("namecode", name);
+      window.location.href = "main-menu.html";
+    }
+
+    window.saveNamecode = saveNamecode;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -58,6 +69,5 @@
       gsap.from("#introBox", { y: -100, opacity: 0, duration: 1.5, ease: "bounce" });
     });
   </script>
-  <script src="script.js"></script>
 </body>
 </html>

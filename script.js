@@ -1,10 +1,12 @@
-async function saveNamecode() {
-      const name = document.getElementById("nameInput").value;
-      if (!name) return alert("Please enter a Namecode");
-      await setDoc(doc(db, "users", name), { namecode: name, mmr: 0 });
-      localStorage.setItem("namecode", name);
-      window.location.href = "main-menu.html";
+function enterGame() {
+    const name = document.getElementById("namecode").value.trim();
+    if (!name) {
+      alert("Please enter your Namecode!");
+      return;
     }
-
-    window.saveNamecode = saveNamecode;
- 
+    // Save name to localStorage
+    localStorage.setItem("playerName", name);
+    // Redirect to main menu
+    window.location.href = "main-menu.html";
+  }
+  
