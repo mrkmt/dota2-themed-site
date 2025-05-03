@@ -4,34 +4,6 @@
   <meta charset="UTF-8">
   <title>DOTA 2 Themed Intro</title>
   <link rel="stylesheet" href="styles.css">
-  <script type="module">
-    // Firebase Setup
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-     const firebaseConfig = {
-      apiKey: "AIzaSyCijsPQQjwlEuETdy9Z4xyCxuFkdzkCDus",
-      authDomain: "dota2themedsite.firebaseapp.com",
-      projectId: "dota2themedsite",
-      storageBucket: "dota2themedsite.firebasestorage.app",
-      messagingSenderId: "576993413249",
-      appId: "1:576993413249:web:425bcca2b1015432f4a580",
-      measurementId: "G-6BDBHZKFN0"
-    };
-  
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    async function saveNamecode() {
-      const name = document.getElementById("nameInput").value;
-      if (!name) return alert("Please enter a Namecode");
-      await setDoc(doc(db, "users", name), { namecode: name, mmr: 0 });
-      localStorage.setItem("namecode", name);
-      window.location.href = "main-menu.html";
-    }
-
-    window.saveNamecode = saveNamecode;
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <style>
     body {
