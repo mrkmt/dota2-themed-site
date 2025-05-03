@@ -1,20 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DOTA 2 Portal</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>DOTA 2 Themed Intro</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module">
+    // Firebase Setup
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+     const firebaseConfig = {
+      apiKey: "AIzaSyCijsPQQjwlEuETdy9Z4xyCxuFkdzkCDus",
+      authDomain: "dota2themedsite.firebaseapp.com",
+      projectId: "dota2themedsite",
+      storageBucket: "dota2themedsite.firebasestorage.app",
+      messagingSenderId: "576993413249",
+      appId: "1:576993413249:web:425bcca2b1015432f4a580",
+      measurementId: "G-6BDBHZKFN0"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function saveNamecode() {
+      const name = document.getElementById("nameInput").value;
+      if (!name) return alert("Please enter a Namecode");
+      await setDoc(doc(db, "users", name), { namecode: name, mmr: 0 });
+      localStorage.setItem("namecode", name);
+      window.location.href = "menu.html";
+    }
+
+    window.saveNamecode = saveNamecode;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/dota-map.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    body.fade-in { opacity: 1; }
+    .intro-box {
+      background: rgba(0,0,0,0.8);
+      color: gold;
+      padding: 40px;
+      text-align: center;
+      max-width: 400px;
+      margin: 15% auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px black;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: orange;
+    }
+  </style>
 </head>
 <body>
-  <div class="background-lock">
-    <div class="drop-box">
-      <h1>Enter Your Namecode</h1>
-      <input type="text" id="namecode" placeholder="Enter Namecode..." />
-      <button onclick="enterGame()">Enter Game Mode</button>
-    </div>
+  <div class="intro-box" id="introBox">
+    <h1>Enter Your Namecode</h1>
+    <input type="text" id="nameInput" placeholder="Your Namecode">
+    <br>
+    <button onclick="saveNamecode()">Enter Game Mode</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+      gsap.from("#introBox", { y: -100, opacity: 0, duration: 1.5, ease: "bounce" });
+    });
+  </script>
 </body>
 </html>
